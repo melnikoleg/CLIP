@@ -150,9 +150,9 @@ def load(name: str, device: Union[str, torch.device] = "cuda" if torch.cuda.is_a
                 if "value" in node.attributeNames() and str(node["value"]).startswith("cuda"):
                     node.copyAttributes(device_node)
 
-    model.apply(patch_device)
-    patch_device(model.encode_image)
-    patch_device(model.encode_text)
+#     model.apply(patch_device)
+#     patch_device(model.encode_image)
+#     patch_device(model.encode_text)
 
     # patch dtype to float32 on CPU
     if str(device) == "cpu":
